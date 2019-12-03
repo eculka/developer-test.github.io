@@ -3,8 +3,8 @@
     <div class="row mb-3">
       <div class="col-12">
         <div class="d-flex align-items-center">
-          <h1 class="mr-2 font-weight-bold text-white">Customers ({{customers.length}})</h1>
-          <button type="button" class="ml-auto btn btn-primary" (click)="openModal(template)"><fa-icon class="mr-2" [icon]="faPlus"></fa-icon>Add new customer</button>
+          <h1 class="mr-2 font-weight-bold text-white">Customers ({{customerService.customers.length}})</h1>
+          <button type="button" class="ml-auto btn btn-primary" (click)="openModal(template)">Add new customer</button>
 
           <!-- Modal template -->
           <ng-template #template>
@@ -14,7 +14,7 @@
                 <span aria-hidden="true">&times;</span>
               </button>
             </div>
-            <form [formGroup]="addNewCustomerForm" (ngSubmit)="addNewCustomer(addNewCustomerForm.value)">
+            <form [formGroup]="addNewCustomerForm" (ngSubmit)="addCustomer(addNewCustomerForm.value)">
               <div class="modal-body">
                 <div class="row">
                   <div class="form-group col-12 col-md-6">
@@ -44,7 +44,7 @@
                 </div>
                 <hr>
                 <div class="d-flex">
-                  <button class="btn btn-text ml-auto" (click)="modalRef.hide()">Cancel</button>
+                  <a href="javascript:void(0)" class="btn btn-text ml-auto" (click)="modalRef.hide()">Cancel</a>
                   <button class="btn btn-primary ml-2" type="submit">Add new customer</button>
               </div>
               </div>

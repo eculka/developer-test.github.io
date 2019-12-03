@@ -1,48 +1,25 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component, TemplateRef, ViewChild, OnInit } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder } from '@angular/forms';
 import { CustomersComponent } from './customers/customers/customers.component';
+import { CustomersService } from './customers/customers.service';
+import { Customers } from './customers/customers/customers';
+import { Customer } from './customers/customers/customer';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent {
+export class AppComponent implements OnInit{
 
   @ViewChild(CustomersComponent, {static: false}) customersComponent: CustomersComponent;
-
-  customers = [
-    {
-      name: 'John',
-      surname: 'Smith',
-      email: 'johnsmith@email.com',
-      phoneNumber: '07700 900193',
-      age: '34',
-      city: 'Riga'
-    },
-    {
-      name: 'Anthony',
-      surname: 'Blake',
-      email: 'a.blake@email.com',
-      phoneNumber: '07700 900276',
-      age: '53',
-      city: 'London'
-    },
-    {
-      name: 'Bill',
-      surname: 'Stevenson',
-      email: 'bill.stevenson@email.com',
-      phoneNumber: '07700 900025',
-      age: '21',
-      city: 'Barcelona'
-    }
-  ];
-
+  customers = Customers;
   addNewCustomerForm;
 
   modalRef: BsModalRef;
   constructor(
+    public customerService: CustomersService,
     private modalService: BsModalService,
     private formBuilder: FormBuilder
   ) {
@@ -56,18 +33,22 @@ export class AppComponent {
     });
   }
 
-  openModal(template: TemplateRef<any>) {
-    this.modalRef = this.modalService.show(template);
+  ngOnInit() {
+    // Getting customers from customer service
+    this.getCustomers();
   }
 
-  addNewCustomer(customer) {
-    this.customers.push(customer);
-    // Clear form
+  getCustomers() {
+    this.customerService.getCustomers();
+  }
+
+  addCustomer(customer) {
+    this.customerService.addCustomer(customer);
     this.addNewCustomerForm.reset();
-    // Hide Modal
     this.modalRef.hide();
-    // Reset sorting in customers component
-    this.customersComponent.sortDataByProperty(this.customersComponent.customers,
-      this.customersComponent.sortProperty, this.customersComponent.sortDirection);
+  }
+
+  openModal(template: TemplateRef<any>) {
+    this.modalRef = this.modalService.show(template);
   }
 }

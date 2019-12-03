@@ -7,11 +7,13 @@ import { CustomersComponent } from './customers/customers/customers.component';
 import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AvatarComponent } from './avatar/avatar/avatar.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomersComponent
+    CustomersComponent,
+    AvatarComponent
   ],
   imports: [
     BrowserModule,

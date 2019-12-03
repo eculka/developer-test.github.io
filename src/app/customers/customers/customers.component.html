@@ -1,14 +1,14 @@
 <div class="customer-list">
   <div class="table-responsive">
     <table class="table">
-      <thead>
+      <thead class="thead-dark">
         <tr>
           <th scope="col" class="py-3 pl-4">
-            <a class="d-flex flex-nowrap" href="javascript:void(0)" (click)="sort('name')">
-              Name
-              <span class="sorting">
-                  <fa-icon *ngIf="sortProperty === 'name'" [icon]="sortIcon"></fa-icon>
-                  <fa-icon class="background-icon" [icon]="sortBackground"></fa-icon>
+            <a class="d-flex flex-nowrap text-white" href="javascript:void(0)" (click)="sort('name')">
+              <span class="mr-2">Name</span>
+              <span class="sorting ml-auto">
+                  <fa-icon [icon]="sortIcon" *ngIf="sortProperty === 'name'"></fa-icon>
+                  <fa-icon [icon]="sortBackground" class="background-icon"></fa-icon>
                 </span>
             </a>
           </th>
@@ -17,19 +17,23 @@
           <th scope="col" class="py-3">Phone number</th>
           <th scope="col" class="py-3">Age</th>
           <th scope="col" class="py-3 pr-4">
-            <a class="d-flex flex-nowrap" href="javascript:void(0)" (click)="sort('city')">
-              City
-              <span class="sorting">
-                <fa-icon *ngIf="sortProperty === 'city'" [icon]="sortIcon"></fa-icon>
-                <fa-icon class="background-icon" [icon]="sortBackground"></fa-icon>
+            <a class="d-flex flex-nowrap text-white" href="javascript:void(0)" (click)="sort('city')">
+              <span class="mr-2">City</span>
+              <span class="sorting ml-auto">
+                <fa-icon [icon]="sortIcon" *ngIf="sortProperty === 'city'"></fa-icon>
+                <fa-icon [icon]="sortBackground" class="background-icon"></fa-icon>
               </span>
             </a>
           </th>
         </tr>
       </thead>
       <tbody>
-        <tr *ngFor="let customer of customers" class="font-weight-bold">
-          <td class="py-4 pl-4"><span class="circle"></span>{{customer.name}}</td>
+        <tr *ngFor="let customer of customerService.customers" class="font-weight-bold">
+          <td class="py-4 pl-4">
+            <div class="d-flex align-items-center">
+              <app-avatar class="mr-2" [customerName]="customer.name" [customerSurname]="customer.surname"></app-avatar>{{customer.name}}
+            </div>
+          </td>
           <td class="py-4">{{customer.surname}}</td>
           <td class="py-4">{{customer.email}}</td>
           <td class="py-4">{{customer.phoneNumber}}</td>

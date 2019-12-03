@@ -1,51 +1,90 @@
 table{
   width: calc(100% - 1px); // Fixing responsive table with borders
-  background: white;
   border-radius: .3rem;
   overflow: hidden;
 
   thead{
     text-transform: uppercase;
 
-    tr th{
+    th{
       font-weight: normal;
       position: relative;
       border: none;
+      vertical-align: middle;
+
+      &:before{
+        content: '';
+        position: absolute;
+        top: 25%;
+        right: 0;
+        display: block;
+        width: 1px;
+        height: 50%;
+        background: rgba(white,.15);
+
+        &:last-child{
+
+          &:before{
+            display: none;
+          }
+        }
+      }
 
       a{
         text-decoration: none;
-        padding-right: 2rem;
-      }
-    }
-    fa-icon{
-      position: absolute;
-      right: 1.2rem;
-      z-index: 1;
+        padding-right: 1rem;
+        position: relative;
 
-      &.background-icon{
-        color: #aaa;
-        z-index: 0;
+        .sorting{
+          position: relative;
+    
+          fa-icon{
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 1;
+      
+            &.background-icon{
+              color: #aaa;
+              z-index: 0;
+            }
+          }
+        }
       }
     }
   }
+
   tbody{
+    
     tr{
       background: #f7f7f7;
-    }
-    td{
-      border: none;
-    }
-    tr:nth-child(2n) {
-      background: transparent;
+      &:nth-child(2n) {
+        background: #fff;
+      }
+
+      td{
+        border: none;
+        vertical-align: middle;
+        position: relative;
+  
+        &:before{
+          content: '';
+          position: absolute;
+          top: 25%;
+          right: 0;
+          display: block;
+          width: 1px;
+          height: 50%;
+          background: rgba(black,.15);
+        }
+  
+        &:last-child{
+  
+          &:before{
+            display: none;
+          }
+        }
+      }
     }
   }
-}
-
-.circle{
-  display: block;
-  height: 3rem;
-  width: 3rem;
-  background: black;
-  border-radius: 3rem;
-  display: inline-block;
 }

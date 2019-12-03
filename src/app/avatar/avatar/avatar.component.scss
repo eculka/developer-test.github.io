@@ -1,0 +1,10 @@
+$avatar-size: 2rem;
+
+.avatar{
+    display: block;
+    height: $avatar-size;
+    width: $avatar-size;
+    border-radius: $avatar-size;
+    display: inline-block;
+    position: relative;
+  }

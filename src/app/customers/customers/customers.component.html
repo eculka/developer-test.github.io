@@ -35,8 +35,8 @@
             </div>
           </td>
           <td class="py-4">{{customer.surname}}</td>
-          <td class="py-4">{{customer.email}}</td>
-          <td class="py-4">{{customer.phoneNumber}}</td>
+          <td class="py-4"><a href="mailto:{{customer.email}}">{{customer.email}}</a></td>
+          <td class="py-4"><a href="tel:{{customer.phoneNumber}}">{{customer.phoneNumber}}</a></td>
           <td class="py-4">{{customer.age}}</td>
           <td class="py-4 pr-4">{{customer.city}}</td>
         </tr>

@@ -1,7 +1,6 @@
 import { Component, TemplateRef, ViewChild } from '@angular/core';
 import { BsModalRef, BsModalService } from 'ngx-bootstrap/modal';
 import { FormBuilder } from '@angular/forms';
-import { faPlus } from '@fortawesome/free-solid-svg-icons';
 import { CustomersComponent } from './customers/customers/customers.component';
 
 @Component({
@@ -12,8 +11,6 @@ import { CustomersComponent } from './customers/customers/customers.component';
 export class AppComponent {
 
   @ViewChild(CustomersComponent, {static: false}) customersComponent: CustomersComponent;
-
-  faPlus = faPlus;
 
   customers = [
     {

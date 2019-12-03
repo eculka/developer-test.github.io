@@ -1,12 +1,14 @@
 table{
-  &.borderless td, &.borderless th {
-    border: none;
-  }
+  width: calc(100% - 1px); // Fixing responsive table with borders
+
   thead{
     text-transform: uppercase;
+
     tr th{
       font-weight: normal;
       position: relative;
+      border: none;
+      border-bottom: solid 1px #ccc;
 
       a{
         text-decoration: none;
@@ -14,10 +16,10 @@ table{
     }
     fa-icon{
       position: absolute;
-      right: 0.8rem;
+      right: 1.2rem;
 
       &.background-icon{
-        opacity: .3;
+        color: #aaa;
         z-index: -1;
       }
     }
@@ -25,6 +27,7 @@ table{
   tbody{
     tr{
       background: #f7f7f7;
+      border: solid 1px #ccc;
     }
     tr:nth-child(2n) {
       background: transparent;

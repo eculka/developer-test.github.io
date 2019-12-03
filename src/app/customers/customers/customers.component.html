@@ -3,7 +3,7 @@
     <table class="table">
       <thead>
         <tr>
-          <th scope="col">
+          <th scope="col" class="py-3 pl-4">
             <a class="d-flex flex-nowrap" href="javascript:void(0)" (click)="sort('name')">
               Name
               <span class="sorting">
@@ -12,11 +12,11 @@
                 </span>
             </a>
           </th>
-          <th scope="col">Surname</th>
-          <th scope="col">Email</th>
-          <th scope="col">Phone number</th>
-          <th scope="col">Age</th>
-          <th scope="col flex-nowrap">
+          <th scope="col" class="py-3">Surname</th>
+          <th scope="col" class="py-3">Email</th>
+          <th scope="col" class="py-3">Phone number</th>
+          <th scope="col" class="py-3">Age</th>
+          <th scope="col" class="py-3 pr-4">
             <a class="d-flex flex-nowrap" href="javascript:void(0)" (click)="sort('city')">
               City
               <span class="sorting">
@@ -29,12 +29,12 @@
       </thead>
       <tbody>
         <tr *ngFor="let customer of customers" class="font-weight-bold">
-          <td class="py-4">{{customer.name}}</td>
+          <td class="py-4 pl-4"><span class="circle"></span>{{customer.name}}</td>
           <td class="py-4">{{customer.surname}}</td>
           <td class="py-4">{{customer.email}}</td>
           <td class="py-4">{{customer.phoneNumber}}</td>
           <td class="py-4">{{customer.age}}</td>
-          <td class="py-4">{{customer.city}}</td>
+          <td class="py-4 pr-4">{{customer.city}}</td>
         </tr>
       </tbody>
     </table>

@@ -1,5 +1,8 @@
 table{
   width: calc(100% - 1px); // Fixing responsive table with borders
+  background: white;
+  border-radius: .3rem;
+  overflow: hidden;
 
   thead{
     text-transform: uppercase;
@@ -8,29 +11,41 @@ table{
       font-weight: normal;
       position: relative;
       border: none;
-      border-bottom: solid 1px #ccc;
 
       a{
         text-decoration: none;
+        padding-right: 2rem;
       }
     }
     fa-icon{
       position: absolute;
       right: 1.2rem;
+      z-index: 1;
 
       &.background-icon{
         color: #aaa;
-        z-index: -1;
+        z-index: 0;
       }
     }
   }
   tbody{
     tr{
       background: #f7f7f7;
-      border: solid 1px #ccc;
+    }
+    td{
+      border: none;
     }
     tr:nth-child(2n) {
       background: transparent;
     }
   }
+}
+
+.circle{
+  display: block;
+  height: 3rem;
+  width: 3rem;
+  background: black;
+  border-radius: 3rem;
+  display: inline-block;
 }

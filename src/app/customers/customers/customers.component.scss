@@ -1,0 +1,33 @@
+table{
+  &.borderless td, &.borderless th {
+    border: none;
+  }
+  thead{
+    text-transform: uppercase;
+    tr th{
+      font-weight: normal;
+      position: relative;
+
+      a{
+        text-decoration: none;
+      }
+    }
+    fa-icon{
+      position: absolute;
+      right: 0.8rem;
+
+      &.background-icon{
+        opacity: .3;
+        z-index: -1;
+      }
+    }
+  }
+  tbody{
+    tr{
+      background: #f7f7f7;
+    }
+    tr:nth-child(2n) {
+      background: transparent;
+    }
+  }
+}

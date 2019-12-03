@@ -1,0 +1,60 @@
+<section id="customers" class="py-5">
+  <div class="container">
+    <div class="row mb-5">
+      <div class="col-12">
+        <div class="d-flex align-items-center">
+          <h1 class="mr-2">Customers</h1>
+          <button type="button" class="ml-auto btn btn-lg btn-outline-primary" (click)="openModal(template)"><fa-icon class="mr-2" [icon]="faPlus"></fa-icon>Add new customer</button>
+
+          <!-- Modal template -->
+          <ng-template #template>
+            <div class="modal-header">
+              <h4 class="modal-title pull-left">Add new customer</h4>
+              <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <form [formGroup]="addNewCustomerForm" (ngSubmit)="addNewCustomer(addNewCustomerForm.value)">
+              <div class="modal-body">
+                  <div class="form-group">
+                    <label for="name">Name</label>
+                    <input id="name" type="text" formControlName="name" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="surname">Surname</label>
+                    <input id="surname" type="text" formControlName="surname" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input id="email" type="email" formControlName="email" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="phoneNumber">Phone number</label>
+                    <input id="phoneNumber" type="tel" formControlName="phoneNumber" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="age">Age</label>
+                    <input id="age" type="number" formControlName="age" class="form-control">
+                  </div>
+                  <div class="form-group">
+                    <label for="city">City</label>
+                    <input id="city" type="text" formControlName="city" class="form-control">
+                  </div>
+              </div>
+              <div class="modal-footer">
+                  <button class="btn btn-primary" type="submit">Add new customer</button>
+              </div>
+            </form>
+          </ng-template>
+
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <app-customers [customers]="customers"></app-customers>
+      </div>
+    </div>
+  </div>
+</section>
+
